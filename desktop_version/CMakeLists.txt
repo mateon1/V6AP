@@ -72,6 +72,7 @@ endif()
 
 # Source Lists
 set(VVV_CXX_SRC
+    src/v6ap.cpp
     src/BinaryBlob.cpp
     src/BlockV.cpp
     src/ButtonGlyphs.cpp
@@ -187,6 +188,7 @@ if(BUNDLE_DEPENDENCIES)
         ../third_party/FAudio/include
         ../third_party/FAudio/src
         ../third_party/SheenBidi/Headers
+        ../third_party/APCpp
     )
 else()
     target_include_directories(
@@ -200,6 +202,9 @@ else()
         ../third_party/SheenBidi/Headers
     )
 endif()
+
+# Required for WebSocket connection
+add_subdirectory(../third_party/APCpp apcppout)
 
 if(MAKEANDPLAY)
     target_compile_definitions(VVVVVV PRIVATE -DMAKEANDPLAY)
@@ -335,7 +340,7 @@ else()
     string(REGEX REPLACE "-std=[a-z0-9+]+" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
     string(REPLACE "-fexceptions" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
     string(REPLACE "-frtti" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-    set_source_files_properties(${VVV_CXX_SRC} PROPERTIES COMPILE_FLAGS "-std=c++98 -fno-exceptions -fno-rtti")
+    set_source_files_properties(${VVV_CXX_SRC} PROPERTIES COMPILE_FLAGS "-std=c++17 -fno-exceptions -fno-rtti")
 
     # Dependencies (as needed)
     set_source_files_properties(${FAUDIO_SRC} PROPERTIES COMPILE_FLAGS -std=c99)
@@ -375,13 +380,13 @@ if(BUNDLE_DEPENDENCIES)
     # Disable FAudio debug stuff in release mode. This needs a generator expression for CMake reasons(TM)
     target_compile_definitions(faudio-static PRIVATE $<$<CONFIG:Release>:FAUDIO_DISABLE_DEBUGCONFIGURATION>)
 
-    target_link_libraries(VVVVVV ${STATIC_LIBRARIES})
+    target_link_libraries(VVVVVV ${STATIC_LIBRARIES} APCpp)
 else()
     target_compile_definitions(VVVVVV PRIVATE
         ${PNG_DEF}
         -DSYSTEM_LODEPNG
     )
-    target_link_libraries(VVVVVV ${STATIC_LIBRARIES} physfs tinyxml2 FAudio lodepng)
+    target_link_libraries(VVVVVV ${STATIC_LIBRARIES} physfs tinyxml2 FAudio lodepng APCpp)
 endif()
 
 

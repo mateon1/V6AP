@@ -1,6 +1,8 @@
 #define MUSIC_DEFINITION
 #include "Music.h"
 
+#include "v6ap.h"
+
 #include <SDL.h>
 #include <FAudio.h>
 
@@ -1485,6 +1487,8 @@ void musicclass::changemusicarea(int x, int y)
         }
         break;
     }
+
+    V6AP_AdjustMusic(&track);
 
     niceplay(track);
 }
