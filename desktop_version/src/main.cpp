@@ -4,6 +4,7 @@
 #include <emscripten/html5.h>
 #endif
 
+#include "v6ap.h"
 #include "ButtonGlyphs.h"
 #include "CustomLevels.h"
 #include "DeferCallbacks.h"
@@ -393,6 +394,9 @@ int main(int argc, char *argv[])
     int invalid_arg = 0;
     int invalid_partial_arg = 0;
 
+    //V6AP
+    std::string ip = "", name = "", passwd = "", ap_file = "";
+
     vlog_init();
 
     for (int i = 1; i < argc; ++i)
@@ -531,12 +535,41 @@ int main(int argc, char *argv[])
         {
             seed_use_sdl_getticks = true;
         }
+        else if (ARG("-v6ap_name"))
+        {
+            ARG_INNER({
+                name = argv[i+1]; i++;
+            })
+        }
+        else if (ARG("-v6ap_ip"))
+        {
+            ARG_INNER({
+                ip = argv[i+1]; i++;
+            })
+        }
+        else if (ARG("-v6ap_passwd"))
+        {
+            ARG_INNER({
+                passwd = argv[i+1]; i++;
+            })
+        }
+        else if (ARG("-v6ap_file"))
+        {
+            ARG_INNER({
+                ap_file = argv[i+1]; i++;
+            })
+        }
 #undef ARG_INNER
 #undef ARG
         else
         {
             invalid_arg = i;
         }
+    }
+
+    if (name == "" && ap_file == "") {
+        vlog_error("V6AP: You need to at least specify Name (For MultiWorld) or Seed Filename (For Singleplayer). Exiting.");
+        VVV_exit(1);
     }
 
 #if defined(ALWAYS_SHOW_TRANSLATOR_MENU)
@@ -657,6 +690,12 @@ int main(int argc, char *argv[])
     graphics.init();
 
     game.init();
+
+    if (ap_file != "") {
+        V6AP_Init(ap_file.c_str());
+    } else {
+        V6AP_Init(ip.c_str(),name.c_str(),passwd.c_str());
+    }
     game.seed_use_sdl_getticks = seed_use_sdl_getticks;
 
     game.gamestate = PRELOADER;
