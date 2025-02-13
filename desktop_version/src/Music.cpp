@@ -1254,6 +1254,7 @@ void musicclass::changemusicarea(int x, int y)
     switch (track)
     {
     case -1:
+    case 11: /* Secret Lab */
         /* Don't change music. */
         return;
     case -2:
