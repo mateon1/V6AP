@@ -51,6 +51,8 @@ public:
 
     bool ishumanoid(void);
 
+    void followx(int txp);
+
 public:
     //Fundamentals
     bool invis;

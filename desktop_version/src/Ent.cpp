@@ -655,3 +655,23 @@ bool entclass::ishumanoid(void)
         || type == EntityType_SUPERCREWMATE
         || type == EntityType_COLLECTABLE_CREWMATE;
 }
+
+void entclass::followx(int txp) {
+    if (txp > xp + 5)
+    {
+        dir = 1;
+    }
+    else if (txp < xp - 5)
+    {
+        dir = 0;
+    }
+
+    if (txp > xp + 45)
+    {
+        ax = 3;
+    }
+    else if (txp < xp - 45)
+    {
+        ax = -3;
+    }
+}

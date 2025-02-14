@@ -2858,22 +2858,9 @@ bool entityclass::updateentities( int i )
                 if (INBOUNDS_VEC(k, entities) && entities[k].rule == 7)    entities[k].tile = 6;
                 //Stay close to the hero!
                 int j = getplayer();
-                if (INBOUNDS_VEC(j, entities) && entities[j].xp > entities[i].xp + 5)
+                if (INBOUNDS_VEC(j, entities))
                 {
-                    entities[i].dir = 1;
-                }
-                else if (INBOUNDS_VEC(j, entities) && entities[j].xp < entities[i].xp - 5)
-                {
-                    entities[i].dir = 0;
-                }
-
-                if (INBOUNDS_VEC(j, entities) && entities[j].xp > entities[i].xp + 45)
-                {
-                    entities[i].ax = 3;
-                }
-                else if (INBOUNDS_VEC(j, entities) && entities[j].xp < entities[i].xp - 45)
-                {
-                    entities[i].ax = -3;
+                    entities[i].followx(entities[j].xp);
                 }
 
                 //Special rules:
@@ -2889,22 +2876,9 @@ bool entityclass::updateentities( int i )
             {
                 //Basic rules, don't change expression
                 int j = getplayer();
-                if (INBOUNDS_VEC(j, entities) && entities[j].xp > entities[i].xp + 5)
+                if (INBOUNDS_VEC(j, entities))
                 {
-                    entities[i].dir = 1;
-                }
-                else if (INBOUNDS_VEC(j, entities) && entities[j].xp < entities[i].xp - 5)
-                {
-                    entities[i].dir = 0;
-                }
-
-                if (INBOUNDS_VEC(j, entities) && entities[j].xp > entities[i].xp + 45)
-                {
-                    entities[i].ax = 3;
-                }
-                else if (INBOUNDS_VEC(j, entities) && entities[j].xp < entities[i].xp - 45)
-                {
-                    entities[i].ax = -3;
+                    entities[i].followx(entities[j].xp);
                 }
             }
             else if (entities[i].state == 10)
@@ -2912,169 +2886,28 @@ bool entityclass::updateentities( int i )
                 //Everything from 10 on is for cutscenes
                 //Basic rules, don't change expression
                 int j = getplayer();
-                if (INBOUNDS_VEC(j, entities) && entities[j].xp > entities[i].xp + 5)
-                {
-                    entities[i].dir = 1;
-                }
-                else if (INBOUNDS_VEC(j, entities) && entities[j].xp < entities[i].xp - 5)
-                {
-                    entities[i].dir = 0;
-                }
-
-                if (INBOUNDS_VEC(j, entities) && entities[j].xp > entities[i].xp + 45)
-                {
-                    entities[i].ax = 3;
-                }
-                else if (INBOUNDS_VEC(j, entities) && entities[j].xp < entities[i].xp - 45)
-                {
-                    entities[i].ax = -3;
-                }
-            }
-            else if (entities[i].state == 11)
-            {
-                //11-15 means to follow a specific character, in crew order (cyan, purple, yellow, red, green, blue)
-                int j=getcrewman(PURPLE);
                 if (INBOUNDS_VEC(j, entities))
                 {
-                    if (entities[j].xp > entities[i].xp + 5)
-                    {
-                        entities[i].dir = 1;
-                    }
-                    else if (entities[j].xp < entities[i].xp - 5)
-                    {
-                        entities[i].dir = 0;
-                    }
-
-                    if (entities[j].xp > entities[i].xp + 45)
-                    {
-                        entities[i].ax = 3;
-                    }
-                    else if (entities[j].xp < entities[i].xp - 45)
-                    {
-                        entities[i].ax = -3;
-                    }
+                    entities[i].followx(entities[j].xp);
                 }
             }
-            else if (entities[i].state == 12)
+            else if (entities[i].state == 11 || entities[i].state == 12 || entities[i].state == 13 || entities[i].state == 14 || entities[i].state == 15)
             {
                 //11-15 means to follow a specific character, in crew order (cyan, purple, yellow, red, green, blue)
-                int j=getcrewman(YELLOW);
+                int j = getcrewman(entities[i].state == 11 ? PURPLE :
+                                   entities[i].state == 12 ? YELLOW :
+                                   entities[i].state == 13 ? RED :
+                                   entities[i].state == 14 ? GREEN :
+                                 /*entities[i].state == 15*/ BLUE);
                 if (INBOUNDS_VEC(j, entities))
                 {
-                    if (entities[j].xp > entities[i].xp + 5)
-                    {
-                        entities[i].dir = 1;
-                    }
-                    else if (entities[j].xp < entities[i].xp - 5)
-                    {
-                        entities[i].dir = 0;
-                    }
-
-                    if (entities[j].xp > entities[i].xp + 45)
-                    {
-                        entities[i].ax = 3;
-                    }
-                    else if (entities[j].xp < entities[i].xp - 45)
-                    {
-                        entities[i].ax = -3;
-                    }
-                }
-            }
-            else if (entities[i].state == 13)
-            {
-                //11-15 means to follow a specific character, in crew order (cyan, purple, yellow, red, green, blue)
-                int j=getcrewman(RED);
-                if (INBOUNDS_VEC(j, entities))
-                {
-                    if (entities[j].xp > entities[i].xp + 5)
-                    {
-                        entities[i].dir = 1;
-                    }
-                    else if (entities[j].xp < entities[i].xp - 5)
-                    {
-                        entities[i].dir = 0;
-                    }
-
-                    if (entities[j].xp > entities[i].xp + 45)
-                    {
-                        entities[i].ax = 3;
-                    }
-                    else if (entities[j].xp < entities[i].xp - 45)
-                    {
-                        entities[i].ax = -3;
-                    }
-                }
-            }
-            else if (entities[i].state == 14)
-            {
-                //11-15 means to follow a specific character, in crew order (cyan, purple, yellow, red, green, blue)
-                int j=getcrewman(GREEN);
-                if (INBOUNDS_VEC(j, entities))
-                {
-                    if (entities[j].xp > entities[i].xp + 5)
-                    {
-                        entities[i].dir = 1;
-                    }
-                    else if (entities[j].xp < entities[i].xp - 5)
-                    {
-                        entities[i].dir = 0;
-                    }
-
-                    if (entities[j].xp > entities[i].xp + 45)
-                    {
-                        entities[i].ax = 3;
-                    }
-                    else if (entities[j].xp < entities[i].xp - 45)
-                    {
-                        entities[i].ax = -3;
-                    }
-                }
-            }
-            else if (entities[i].state == 15)
-            {
-                //11-15 means to follow a specific character, in crew order (cyan, purple, yellow, red, green, blue)
-                int j=getcrewman(BLUE);
-                if (INBOUNDS_VEC(j, entities))
-                {
-                    if (entities[j].xp > entities[i].xp + 5)
-                    {
-                        entities[i].dir = 1;
-                    }
-                    else if (entities[j].xp < entities[i].xp - 5)
-                    {
-                        entities[i].dir = 0;
-                    }
-
-                    if (entities[j].xp > entities[i].xp + 45)
-                    {
-                        entities[i].ax = 3;
-                    }
-                    else if (entities[j].xp < entities[i].xp - 45)
-                    {
-                        entities[i].ax = -3;
-                    }
+                    entities[i].followx(entities[j].xp);
                 }
             }
             else if (entities[i].state == 16)
             {
                 //Follow a position: given an x coordinate, seek it out.
-                if (entities[i].para > entities[i].xp + 5)
-                {
-                    entities[i].dir = 1;
-                }
-                else if (entities[i].para < entities[i].xp - 5)
-                {
-                    entities[i].dir = 0;
-                }
-
-                if (entities[i].para > entities[i].xp + 45)
-                {
-                    entities[i].ax = 3;
-                }
-                else if (entities[i].para < entities[i].xp - 45)
-                {
-                    entities[i].ax = -3;
-                }
+                entities[i].followx(entities[i].para);
             }
             else if (entities[i].state == 17)
             {
