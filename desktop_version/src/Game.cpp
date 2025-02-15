@@ -3329,16 +3329,16 @@ void Game::updatestate(void)
                 if (bestgamedeaths <= 500) {
                     unlockAchievement("vvvvvvcomplete500");
                 }
-            if (bestgamedeaths <= 250) {
-                unlockAchievement("vvvvvvcomplete250");
+                if (bestgamedeaths <= 250) {
+                    unlockAchievement("vvvvvvcomplete250");
+                }
+                if (bestgamedeaths <= 100) {
+                    unlockAchievement("vvvvvvcomplete100");
+                }
+                if (bestgamedeaths <= 50) {
+                    unlockAchievement("vvvvvvcomplete50");
+                }
             }
-            if (bestgamedeaths <= 100) {
-                unlockAchievement("vvvvvvcomplete100");
-            }
-            if (bestgamedeaths <= 50) {
-                unlockAchievement("vvvvvvcomplete50");
-            }
-        }
 
             if (nodeathmode || nodeatheligible)
             {
