@@ -5,6 +5,16 @@
 #include <stdint.h>
 #include <string>
 
+enum blocktype
+{
+    BLOCK = 0,
+    TRIGGER = 1,
+    DAMAGE = 2,
+    DIRECTIONAL = 3,
+    SAFE = 4,
+    ACTIVITY = 5
+};
+
 class blockclass
 {
 public:
@@ -17,7 +27,7 @@ public:
 public:
     //Fundamentals
     SDL_Rect rect;
-    int type;
+    enum blocktype type;
     int trigger;
     int xp, yp, wp, hp;
     std::string script, prompt;

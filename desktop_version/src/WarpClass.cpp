@@ -64,7 +64,7 @@ const short* warpclass::loadlevel(int rx, int ry)
 
         if(game.intimetrial)
         {
-            obj.createblock(0, 0, 0, 8, 240);
+            obj.createblock(BLOCK, 0, 0, 8, 240);
         }
 
         rcol = 0;
@@ -577,7 +577,7 @@ const short* warpclass::loadlevel(int rx, int ry)
 
 
         obj.createentity(8, 32, 20, 1);  // (terminal)
-        obj.createblock(5, 8-8, 32, 20, 16, 17);
+        obj.createblock(ACTIVITY, 8-8, 32, 20, 16, 17);
 
         rcol = 3;
         warpx = true;
@@ -688,7 +688,7 @@ const short* warpclass::loadlevel(int rx, int ry)
 
 
         obj.createentity(24, 200, 20, 1);  // (terminal)
-        obj.createblock(5, 24-8, 200, 20, 16, 18);
+        obj.createblock(ACTIVITY, 24-8, 200, 20, 16, 18);
         rcol = 2;
         warpx = true;
         roomname = "Edge Games";
@@ -1066,7 +1066,7 @@ const short* warpclass::loadlevel(int rx, int ry)
 
         if(game.intimetrial)
         {
-            obj.createblock(1, 20, 0, 32, 240, 82);
+            obj.createblock(TRIGGER, 20, 0, 32, 240, 82);
         }
 
         roomname = "Murdering Twinmaker";
@@ -1117,7 +1117,7 @@ const short* warpclass::loadlevel(int rx, int ry)
             if(game.companion==0 && !obj.flags[11] && !game.crewstats[4])   //also need to check if he's rescued in a previous game
             {
                 obj.createentity(255, 121, 15, 0);
-                obj.createblock(1, 215, 0, 160, 240, 35);
+                obj.createblock(TRIGGER, 215, 0, 160, 240, 35);
             }
         }
         roomname = "It's Not Easy Being Green";

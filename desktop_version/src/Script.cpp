@@ -1655,7 +1655,7 @@ void scriptclass::run(void)
                 }
                 if (ss_toi(words[1]) == 1)
                 {
-                    obj.createblock(5, 88 - 4, 80, 20, 16, 25);
+                    obj.createblock(ACTIVITY, 88 - 4, 80, 20, 16, 25);
                     for (j = 0; j < (int) obj.entities.size(); j++)
                     {
                         if (obj.entities[j].xp == 88 && obj.entities[j].yp==80)
@@ -1666,7 +1666,7 @@ void scriptclass::run(void)
                 }
                 else if (ss_toi(words[1]) == 2)
                 {
-                    obj.createblock(5, 128 - 4, 80, 20, 16, 26);
+                    obj.createblock(ACTIVITY, 128 - 4, 80, 20, 16, 26);
                     for (j = 0; j < (int) obj.entities.size(); j++)
                     {
                         if (obj.entities[j].xp == 128 && obj.entities[j].yp==80)
@@ -1677,7 +1677,7 @@ void scriptclass::run(void)
                 }
                 else if (ss_toi(words[1]) == 3)
                 {
-                    obj.createblock(5, 176 - 4, 80, 20, 16, 27);
+                    obj.createblock(ACTIVITY, 176 - 4, 80, 20, 16, 27);
                     for (j = 0; j < (int) obj.entities.size(); j++)
                     {
                         if (obj.entities[j].xp == 176 && obj.entities[j].yp==80)
@@ -1688,7 +1688,7 @@ void scriptclass::run(void)
                 }
                 else if (ss_toi(words[1]) == 4)
                 {
-                    obj.createblock(5, 216 - 4, 80, 20, 16, 28);
+                    obj.createblock(ACTIVITY, 216 - 4, 80, 20, 16, 28);
                     for (j = 0; j < (int) obj.entities.size(); j++)
                     {
                         if (obj.entities[j].xp == 216 && obj.entities[j].yp==80)
@@ -1699,7 +1699,7 @@ void scriptclass::run(void)
                 }
                 else if (ss_toi(words[1]) == 5)
                 {
-                    obj.createblock(5, 88 - 4, 128, 20, 16, 29);
+                    obj.createblock(ACTIVITY, 88 - 4, 128, 20, 16, 29);
                     for (j = 0; j < (int) obj.entities.size(); j++)
                     {
                         if (obj.entities[j].xp == 88 && obj.entities[j].yp==128)
@@ -1710,7 +1710,7 @@ void scriptclass::run(void)
                 }
                 else if (ss_toi(words[1]) == 6)
                 {
-                    obj.createblock(5, 176 - 4, 128, 20, 16, 30);
+                    obj.createblock(ACTIVITY, 176 - 4, 128, 20, 16, 30);
                     for (j = 0; j < (int) obj.entities.size(); j++)
                     {
                         if (obj.entities[j].xp == 176 && obj.entities[j].yp==128)
@@ -1721,7 +1721,7 @@ void scriptclass::run(void)
                 }
                 else if (ss_toi(words[1]) == 7)
                 {
-                    obj.createblock(5, 40 - 4, 40, 20, 16, 31);
+                    obj.createblock(ACTIVITY, 40 - 4, 40, 20, 16, 31);
                     for (j = 0; j < (int) obj.entities.size(); j++)
                     {
                         if (obj.entities[j].xp == 40 && obj.entities[j].yp==40)
@@ -1732,7 +1732,7 @@ void scriptclass::run(void)
                 }
                 else if (ss_toi(words[1]) == 8)
                 {
-                    obj.createblock(5, 216 - 4, 128, 20, 16, 32);
+                    obj.createblock(ACTIVITY, 216 - 4, 128, 20, 16, 32);
                     for (j = 0; j < (int) obj.entities.size(); j++)
                     {
                         if (obj.entities[j].xp == 216 && obj.entities[j].yp==128)
@@ -1743,7 +1743,7 @@ void scriptclass::run(void)
                 }
                 else if (ss_toi(words[1]) == 9)
                 {
-                    obj.createblock(5, 128 - 4, 128, 20, 16, 33);
+                    obj.createblock(ACTIVITY, 128 - 4, 128, 20, 16, 33);
                     for (j = 0; j < (int) obj.entities.size(); j++)
                     {
                         if (obj.entities[j].xp == 128 && obj.entities[j].yp==128)
@@ -1754,7 +1754,7 @@ void scriptclass::run(void)
                 }
                 else if (ss_toi(words[1]) == 10)
                 {
-                    obj.createblock(5, 264 - 4, 40, 20, 16, 34);
+                    obj.createblock(ACTIVITY, 264 - 4, 40, 20, 16, 34);
                     for (j = 0; j < (int) obj.entities.size(); j++)
                     {
                         if (obj.entities[j].xp == 264 && obj.entities[j].yp==40)
@@ -1796,11 +1796,11 @@ void scriptclass::run(void)
                 int crewman = obj.getcrewman(crew_color);
                 if (INBOUNDS_VEC(crewman, obj.entities) && crew_color == GREEN)
                 {
-                    obj.createblock(5, obj.entities[crewman].xp - 32, obj.entities[crewman].yp-20, 96, 60, i, "", (i == 35));
+                    obj.createblock(ACTIVITY, obj.entities[crewman].xp - 32, obj.entities[crewman].yp-20, 96, 60, i, "", (i == 35));
                 }
                 else if (INBOUNDS_VEC(crewman, obj.entities))
                 {
-                    obj.createblock(5, obj.entities[crewman].xp - 32, 0, 96, 240, i, "", (i == 35));
+                    obj.createblock(ACTIVITY, obj.entities[crewman].xp - 32, 0, 96, 240, i, "", (i == 35));
                 }
             }
             else if (words[0] == "setactivitycolour")

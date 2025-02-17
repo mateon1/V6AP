@@ -12,7 +12,7 @@ blockclass::blockclass(void)
 
 void blockclass::clear(void)
 {
-    type = 0;
+    type = BLOCK;
     trigger = 0;
 
     xp = 0;

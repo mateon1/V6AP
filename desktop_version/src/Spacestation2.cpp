@@ -1182,10 +1182,10 @@ const short* spacestation2class::loadlevel(int rx, int ry)
 
         obj.createentity(248 - 4, 160 - 48, 1, 1, 0);  // Enemy
         obj.createentity(124, 120, 20, 1);  // (terminal)
-        obj.createblock(5, 124-4, 120, 20, 16, 14);
+        obj.createblock(ACTIVITY, 124-4, 120, 20, 16, 14);
 
         obj.createentity(156, 40, 20, 1);  // (terminal)
-        obj.createblock(5, 156-4, 40, 20, 16, 15);
+        obj.createblock(ACTIVITY, 156-4, 40, 20, 16, 15);
 
         roomname = "The Hanged Man, Reversed";
         result = contents;
@@ -2143,7 +2143,7 @@ const short* spacestation2class::loadlevel(int rx, int ry)
         obj.createentity(96, 152, 10, 1, 450560);  // (savepoint)
 
         obj.createentity(24, 152, 20, 1);  // (terminal)
-        obj.createblock(5, 24-4, 152, 20, 16, 16);
+        obj.createblock(ACTIVITY, 24-4, 152, 20, 16, 16);
         roomname = "Doing Things The Hard Way";
         result = contents;
         break;
@@ -2244,7 +2244,7 @@ const short* spacestation2class::loadlevel(int rx, int ry)
 
         if(game.intimetrial)
         {
-            obj.createblock(1, 56+16, 0, 32, 150, 82);
+            obj.createblock(TRIGGER, 56+16, 0, 32, 150, 82);
         }
         else
         {
@@ -2257,7 +2257,7 @@ const short* spacestation2class::loadlevel(int rx, int ry)
                 }
                 else
                 {
-                    obj.createblock(1, 56, 0, 32, 150, 32);
+                    obj.createblock(TRIGGER, 56, 0, 32, 150, 32);
                 }
             }
         }
@@ -2494,7 +2494,7 @@ const short* spacestation2class::loadlevel(int rx, int ry)
 
         if(!game.nocutscenes)
         {
-            obj.createblock(1, 0, 0, 112, 112, 8);
+            obj.createblock(TRIGGER, 0, 0, 112, 112, 8);
         }
         roomname = "V Stitch";
         result = contents;
@@ -2756,7 +2756,7 @@ const short* spacestation2class::loadlevel(int rx, int ry)
             if(game.companion==0 && !obj.flags[10] &&  !game.crewstats[2])   //also need to check if he's rescued in a previous game
             {
                 obj.createentity(42, 86, 16, 0);
-                obj.createblock(1, 0, 0, 140, 240, 34);
+                obj.createblock(TRIGGER, 0, 0, 140, 240, 34);
             }
         }
         roomname = "Frown Upside Down";
@@ -2804,7 +2804,7 @@ const short* spacestation2class::loadlevel(int rx, int ry)
 
         if(game.intimetrial)
         {
-            obj.createblock(1, 280, 0, 32, 240, 82);
+            obj.createblock(TRIGGER, 280, 0, 32, 240, 82);
         }
         roomname = "Energize";
         result = contents;
@@ -2914,7 +2914,7 @@ const short* spacestation2class::loadlevel(int rx, int ry)
         {
             if(!obj.flags[68])
             {
-                obj.createblock(1, 32, 0, 320, 240, 17);
+                obj.createblock(TRIGGER, 32, 0, 320, 240, 17);
                 obj.flags[68] = true;
             }
         }
@@ -3058,7 +3058,7 @@ const short* spacestation2class::loadlevel(int rx, int ry)
 
         if(!game.nocutscenes)
         {
-            obj.createblock(1, 16, 0, 320, 240, 47);
+            obj.createblock(TRIGGER, 16, 0, 320, 240, 47);
         }
 
         roomname = "Trench Warfare";
@@ -3211,7 +3211,7 @@ const short* spacestation2class::loadlevel(int rx, int ry)
 
         if(!game.intimetrial)
         {
-            obj.createblock(1, 120, 0, 320, 240, 31);
+            obj.createblock(TRIGGER, 120, 0, 320, 240, 31);
         }
 
         roomname = "Comms Relay";
@@ -3305,7 +3305,7 @@ const short* spacestation2class::loadlevel(int rx, int ry)
         obj.createentity(224 - 16, 128, 1, 2, 3);  // Enemy
 
         obj.createentity(256-4, 200, 20, 1);  // (terminal)
-        obj.createblock(5, 256-8, 200, 20, 16, 6);
+        obj.createblock(ACTIVITY, 256-8, 200, 20, 16, 6);
         roomname = "Linear Collider";
         result = contents;
         break;
@@ -3481,7 +3481,7 @@ const short* spacestation2class::loadlevel(int rx, int ry)
 
         if(!game.nocutscenes)
         {
-            obj.createblock(1, 72, 0, 320, 240, 30);
+            obj.createblock(TRIGGER, 72, 0, 320, 240, 30);
         }
 
         roomname = "Solitude";
@@ -3529,8 +3529,8 @@ const short* spacestation2class::loadlevel(int rx, int ry)
 
         if(!game.nocutscenes)
         {
-            obj.createblock(1, 10, 0, 60, 240, 22);
-            obj.createblock(1, 280, 0, 320, 240, 21);
+            obj.createblock(TRIGGER, 10, 0, 60, 240, 22);
+            obj.createblock(TRIGGER, 280, 0, 320, 240, 21);
         }
         result = contents;
         break;

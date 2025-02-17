@@ -60,7 +60,7 @@ const short* otherlevelclass::loadlevel(int rx, int ry)
         obj.createentity(72, 32, 14); //Teleporter!
         obj.createentity(216, 144, 20, 1);
 
-        obj.createblock(5, 216-4, 144, 20, 16, 8);
+        obj.createblock(ACTIVITY, 216-4, 144, 20, 16, 8);
         result = contents;
         break;
     }
@@ -1602,7 +1602,7 @@ const short* otherlevelclass::loadlevel(int rx, int ry)
 
             if(!game.nocutscenes && !obj.flags[70])
             {
-                obj.createblock(1, 304, 0, 16, 240, 48);
+                obj.createblock(TRIGGER, 304, 0, 16, 240, 48);
             }
             result = contents;
         }
@@ -2166,65 +2166,65 @@ const short* otherlevelclass::loadlevel(int rx, int ry)
         };
 
         obj.createentity(88, 80, 21, 1); //Terminal    // UU Brothers
-        obj.createblock(5, 88 - 4, 80, 20, 16, 25);
+        obj.createblock(ACTIVITY, 88 - 4, 80, 20, 16, 25);
 
         if(game.stat_trinkets>=5)
         {
             obj.createentity(128, 80, 21, 1); //Terminal
-            obj.createblock(5, 128 - 4, 80, 20, 16, 26);
+            obj.createblock(ACTIVITY, 128 - 4, 80, 20, 16, 26);
         }
 
         if(game.stat_trinkets>=8)
         {
             obj.createentity(176, 80, 21, 1); //Terminal
-            obj.createblock(5, 176 - 4, 80, 20, 16, 27);
+            obj.createblock(ACTIVITY, 176 - 4, 80, 20, 16, 27);
         }
 
         if(game.stat_trinkets>=10)
         {
             obj.createentity(216, 80, 21, 1); //Terminal
-            obj.createblock(5, 216 - 4, 80, 20, 16, 28);
+            obj.createblock(ACTIVITY, 216 - 4, 80, 20, 16, 28);
         }
 
         if(game.stat_trinkets>=12)
         {
             obj.createentity(88, 128, 21, 0); //Terminal
-            obj.createblock(5, 88 - 4, 128, 20, 16, 29);
+            obj.createblock(ACTIVITY, 88 - 4, 128, 20, 16, 29);
         }
 
         if(game.stat_trinkets>=14)
         {
             obj.createentity(128, 128, 21, 0); //Terminal
-            obj.createblock(5, 128 - 4, 128, 20, 16, 33);
+            obj.createblock(ACTIVITY, 128 - 4, 128, 20, 16, 33);
         }
 
         if(game.stat_trinkets>=16)
         {
             obj.createentity(176, 128, 21, 0); //Terminal
-            obj.createblock(5, 176 - 4, 128, 20, 16, 30);
+            obj.createblock(ACTIVITY, 176 - 4, 128, 20, 16, 30);
         }
 
         if(game.stat_trinkets>=18)
         {
             obj.createentity(216, 128, 21, 0); //Terminal
-            obj.createblock(5, 216 - 4, 128, 20, 16, 32);
+            obj.createblock(ACTIVITY, 216 - 4, 128, 20, 16, 32);
         }
 
         //Special cases
         if(game.stat_trinkets>=20)
         {
             obj.createentity(40, 40, 21, 0); //Terminal
-            obj.createblock(5, 40 - 4, 40, 20, 16, 31);
+            obj.createblock(ACTIVITY, 40 - 4, 40, 20, 16, 31);
         }
 
         if(game.stat_trinkets>=20)
         {
             obj.createentity(264, 40, 21, 0); //Terminal
-            obj.createblock(5, 264 - 4, 40, 20, 16, 34);
+            obj.createblock(ACTIVITY, 264 - 4, 40, 20, 16, 34);
         }
 
         obj.createentity(152, 40, 21, 0); //Terminal (jukebox instructions)
-        obj.createblock(5, 152 - 4, 40, 20, 16, 24);
+        obj.createblock(ACTIVITY, 152 - 4, 40, 20, 16, 24);
         hiddenname = "The Ship";
         result = contents;
         break;
@@ -2585,12 +2585,12 @@ const short* otherlevelclass::loadlevel(int rx, int ry)
         };
 
         obj.createentity(256, 120, 20, 1); //Terminal Ship computer
-        obj.createblock(5, 256 - 4, 120, 20, 16, 22);
+        obj.createblock(ACTIVITY, 256 - 4, 120, 20, 16, 22);
 
         obj.createentity(256, 184, 20, 1); //Terminal
         obj.createentity(232, 184, 20, 1); //Terminal
         obj.createentity(208, 184, 20, 1); //Terminal
-        obj.createblock(5, 208 + 4, 184, 56, 16, 23);
+        obj.createblock(ACTIVITY, 208 + 4, 184, 56, 16, 23);
         hiddenname = "The Ship";
         result = contents;
         break;
@@ -3948,7 +3948,7 @@ const short* otherlevelclass::loadlevel(int rx, int ry)
         if(!game.intimetrial)
         {
             obj.createentity(96, 48, 20, 1);//Terminal
-            obj.createblock(5, 96 - 4, 48, 20, 16, 12);
+            obj.createblock(ACTIVITY, 96 - 4, 48, 20, 16, 12);
         }
 
         obj.createentity(128, 216, 10, 1, 116061);  // (savepoint)
@@ -4947,7 +4947,7 @@ const short* otherlevelclass::loadlevel(int rx, int ry)
         obj.createentity(176, 40, 14); //Teleporter!
         obj.createentity(120, 128, 20, 1);  // (terminal)
 
-        obj.createblock(5, 120-4, 128, 20, 16, 7);
+        obj.createblock(ACTIVITY, 120-4, 128, 20, 16, 7);
         result = contents;
         break;
     }
@@ -6879,7 +6879,7 @@ const short* otherlevelclass::loadlevel(int rx, int ry)
         };
 
         obj.createentity(280, 32, 20, 1); //terminal
-        obj.createblock(5, 280-4, 32, 20, 16, 9);
+        obj.createblock(ACTIVITY, 280-4, 32, 20, 16, 9);
 
         roomtileset = 0; // (Use space station tileset)
         result = contents;
@@ -7282,7 +7282,7 @@ const short* otherlevelclass::loadlevel(int rx, int ry)
         obj.createentity(176, 72, 14); //Teleporter!
         obj.createentity(88, 160, 20, 1);//terminal
 
-        obj.createblock(5, 88-4, 160, 20, 16, 11);
+        obj.createblock(ACTIVITY, 88-4, 160, 20, 16, 11);
         result = contents;
         break;
     }
@@ -7726,7 +7726,7 @@ const short* otherlevelclass::loadlevel(int rx, int ry)
         obj.createentity(40, 40, 14); //Teleporter!
         obj.createentity(192, 120, 20, 1);//terminal
 
-        obj.createblock(5, 192-4, 120, 20, 16, 10);
+        obj.createblock(ACTIVITY, 192-4, 120, 20, 16, 10);
         roomtileset = 0; // (Use space station tileset)
         result = contents;
         break;
@@ -8900,7 +8900,7 @@ const short* otherlevelclass::loadlevel(int rx, int ry)
         {
             //vitellary
             obj.createentity(231, 81, 18, 14, 0, 18);
-            obj.createblock(5, 231- 32, 0, 32 + 32 + 32, 240, 2);
+            obj.createblock(ACTIVITY, 231- 32, 0, 32 + 32 + 32, 240, 2);
 
             //violet
             obj.createentity(83, 126, 18, 20, 0, 18);
@@ -8910,7 +8910,7 @@ const short* otherlevelclass::loadlevel(int rx, int ry)
                 obj.entities[crewman].rule = 7;
                 obj.entities[crewman].tile +=6;
             }
-            obj.createblock(5, 83 - 32, 0, 32 + 32 + 32, 240, 1);
+            obj.createblock(ACTIVITY, 83 - 32, 0, 32 + 32 + 32, 240, 1);
         }
         hiddenname = "Secret Lab";
         result = contents;
@@ -9069,11 +9069,11 @@ const short* otherlevelclass::loadlevel(int rx, int ry)
 
         //vertigris:
         obj.createentity(100, 169, 18, 13, 0, 18);
-        obj.createblock(5, 100 - 16, 0, 32 + 32, 240, 4);
+        obj.createblock(ACTIVITY, 100 - 16, 0, 32 + 32, 240, 4);
 
         //victoria:
         obj.createentity(193, 89, 18, 16, 0, 18);
-        obj.createblock(5, 193-16, 0, 32+32, 240, 5);
+        obj.createblock(ACTIVITY, 193-16, 0, 32+32, 240, 5);
         hiddenname = "Secret Lab";
         result = contents;
         break;
@@ -9118,15 +9118,15 @@ const short* otherlevelclass::loadlevel(int rx, int ry)
 
         obj.createentity(72, 192, 13);  // (shiny trinket)
         obj.createentity(112, 144, 20, 1);  // (terminal)
-        obj.createblock(5, 112 - 4, 144, 20, 16, 21);
+        obj.createblock(ACTIVITY, 112 - 4, 144, 20, 16, 21);
 
         //vermilion
         obj.createentity(186, 137, 18, 15, 0, 18);
-        obj.createblock(5, 186 - 32, 0, 32 + 32 + 32, 240, 3);
+        obj.createblock(ACTIVITY, 186 - 32, 0, 32 + 32 + 32, 240, 3);
 
         //naughty corner!
-        obj.createblock(1, 30, 0, 20, 50, 15);
-        obj.createblock(1, 90, 0, 20, 50, 16);
+        obj.createblock(TRIGGER, 30, 0, 20, 50, 15);
+        obj.createblock(TRIGGER, 90, 0, 20, 50, 16);
         hiddenname = "Secret Lab";
         result = contents;
         break;
@@ -9172,7 +9172,7 @@ const short* otherlevelclass::loadlevel(int rx, int ry)
 
         obj.createentity(-8, 84-32, 11, 328+8);  // (horizontal gravity line)
         obj.createentity(-8, 148 + 32, 11, 328+8);  // (horizontal gravity line)
-        obj.createblock(1, -10, 84 - 16, 340, 32, 9); //start the game
+        obj.createblock(TRIGGER, -10, 84 - 16, 340, 32, 9); //start the game
         hiddenname = "The Super Gravitron";
         result = contents;
         break;

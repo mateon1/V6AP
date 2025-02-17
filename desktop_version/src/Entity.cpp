@@ -776,7 +776,7 @@ void entityclass::generateswnwave( int t )
     }
 }
 
-void entityclass::createblock( int t, int xp, int yp, int w, int h, int trig /*= 0*/, const std::string& script /*= ""*/, bool custom /*= false*/)
+void entityclass::createblock( enum blocktype t, int xp, int yp, int w, int h, int trig /*= 0*/, const std::string& script /*= ""*/, bool custom /*= false*/)
 {
     k = blocks.size();
 
@@ -1453,7 +1453,7 @@ void entityclass::createentity(int xp, int yp, int t, int meta1, int meta2, int 
 
         entity.isplatform = true;
 
-        createblock(0, xp, yp, 32, 8);
+        createblock(BLOCK, xp, yp, 32, 8);
         break;
     case 3: //Disappearing platforms
         entity.rule = 3;
@@ -1483,7 +1483,7 @@ void entityclass::createentity(int xp, int yp, int t, int meta1, int meta2, int 
         entity.onentity = 1;
         entity.animate = 100;
 
-        createblock(0, xp, yp, 32, 8);
+        createblock(BLOCK, xp, yp, 32, 8);
         break;
     case 4: //Breakable blocks
         entity.rule = 6;
@@ -1498,7 +1498,7 @@ void entityclass::createentity(int xp, int yp, int t, int meta1, int meta2, int 
         entity.onentity = 1;
         entity.animate = 100;
 
-        createblock(0, xp, yp, 8, 8);
+        createblock(BLOCK, xp, yp, 8, 8);
         break;
     case 5: //Gravity Tokens
         entity.rule = 3;
@@ -2632,7 +2632,7 @@ bool entityclass::updateentities( int i )
             else if (entities[i].state == 4)
             {
                 //restart!
-                createblock(0, entities[i].xp, entities[i].yp, 32, 8);
+                createblock(BLOCK, entities[i].xp, entities[i].yp, 32, 8);
                 entities[i].state = 4;
                 entities[i].invis = false;
                 entities[i].walkingframe--;

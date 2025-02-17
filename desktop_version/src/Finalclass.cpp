@@ -613,11 +613,11 @@ const short* finalclass::loadlevel(int rx, int ry)
         {
             if ((game.intimetrial || game.nocutscenes) && !game.translator_exploring)
             {
-                obj.createblock(1, 152 - 4, 112, 20, 16, 85);
+                obj.createblock(TRIGGER, 152 - 4, 112, 20, 16, 85);
             }
             else
             {
-                obj.createblock(5, 152 - 4, 112, 20, 16, 13);
+                obj.createblock(ACTIVITY, 152 - 4, 112, 20, 16, 13);
             }
         }
 
@@ -1365,21 +1365,21 @@ const short* finalclass::loadlevel(int rx, int ry)
         740,740,740,740,740,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,740,740,740,740,740,
         };
 
-        obj.createblock(0, 0, 0, 5, 240);
-        obj.createblock(0, 315, 0, 5, 240);
+        obj.createblock(BLOCK, 0, 0, 5, 240);
+        obj.createblock(BLOCK, 315, 0, 5, 240);
 
 
         if (game.translator_exploring)
         {
-            obj.createblock(1, 0, 0, 320, 120, 3091);
+            obj.createblock(TRIGGER, 0, 0, 320, 120, 3091);
         }
         else if(game.intimetrial)
         {
-            obj.createblock(1, 0, 0, 320, 120, 82);
+            obj.createblock(TRIGGER, 0, 0, 320, 120, 82);
         }
         else
         {
-            obj.createblock(1, 0, 0, 320, 120, 3500); //Game complete
+            obj.createblock(TRIGGER, 0, 0, 320, 120, 3500); //Game complete
         }
         roomname = "VVVVVV";
         result = contents;
@@ -1509,7 +1509,7 @@ const short* finalclass::loadlevel(int rx, int ry)
         obj.createentity(264, 32, 10, 0, 54480);  // (savepoint)
 
         /*if(!game.nocutscenes && !obj.flags[71]){
-        obj.createblock(1, 72, 0, 320, 240, 49);
+        obj.createblock(TRIGGER, 72, 0, 320, 240, 49);
         }*/
 
         warpy = true;
@@ -1650,7 +1650,7 @@ const short* finalclass::loadlevel(int rx, int ry)
             if(game.companion==0 && !obj.flags[8] && !game.crewstats[3])   //also need to check if he's rescued in a previous game
             {
                 obj.createentity(264, 185, 18, 15, 1, 17, 0);
-                obj.createblock(1, 26*8, 0, 32, 240, 36);
+                obj.createblock(TRIGGER, 26*8, 0, 32, 240, 36);
             }
         }
         result = contents;
@@ -1698,7 +1698,7 @@ const short* finalclass::loadlevel(int rx, int ry)
 
         if(game.intimetrial)
         {
-            obj.createblock(1, 40, 0, 32, 240, 82);
+            obj.createblock(TRIGGER, 40, 0, 32, 240, 82);
         }
         result = contents;
         break;
@@ -1828,7 +1828,7 @@ const short* finalclass::loadlevel(int rx, int ry)
         //obj.createentity(-8, 84-32, 11, 328);  // (horizontal gravity line)
         obj.createentity(-8, 148 + 32, 11, 328);  // (horizontal gravity line)
 
-        obj.createblock(1, -10, 84 - 16, 340, 32, 10); //create the second line!
+        obj.createblock(TRIGGER, -10, 84 - 16, 340, 32, 10); //create the second line!
 
         roomname = "The Gravitron";
         warpx = true; //warpy = true;
@@ -1879,22 +1879,22 @@ const short* finalclass::loadlevel(int rx, int ry)
             if (game.lastsaved == 2)
             {
                 obj.createentity(112, 169, 18, 14, 0, 17, 1);
-                obj.createblock(1, 22 * 8, 16*8, 32, 240, 37);
+                obj.createblock(TRIGGER, 22 * 8, 16*8, 32, 240, 37);
             }
             else if (game.lastsaved ==3)
             {
                 obj.createentity(112, 169, 18, 15, 0, 17, 1);
-                obj.createblock(1, 22 * 8, 16*8, 32, 240, 38);
+                obj.createblock(TRIGGER, 22 * 8, 16*8, 32, 240, 38);
             }
             else if (game.lastsaved == 4)
             {
                 obj.createentity(112, 169, 18, 13, 0, 17, 1);
-                obj.createblock(1, 22 * 8, 16*8, 32, 240, 39);
+                obj.createblock(TRIGGER, 22 * 8, 16*8, 32, 240, 39);
             }
             else
             {
                 obj.createentity(112, 169, 18, 16, 1, 17, 1);
-                obj.createblock(1, 22 * 8, 16*8, 32, 240, 40);
+                obj.createblock(TRIGGER, 22 * 8, 16*8, 32, 240, 40);
             }
         }
 
@@ -2036,8 +2036,8 @@ const short* finalclass::loadlevel(int rx, int ry)
 
         if(!game.nodeathmode)
         {
-            obj.createblock(1, 0, 0, 32, 240, 41); //scene 2
-            obj.createblock(1, 280, 0, 32, 240, 12); //scene 2
+            obj.createblock(TRIGGER, 0, 0, 32, 240, 41); //scene 2
+            obj.createblock(TRIGGER, 280, 0, 32, 240, 12); //scene 2
         }
 
         roomname = "What Are You Waiting For?";
@@ -2084,7 +2084,7 @@ const short* finalclass::loadlevel(int rx, int ry)
 
         if(!game.nodeathmode)
         {
-            obj.createblock(1, 20, 0, 32, 240, 13); //scene 2
+            obj.createblock(TRIGGER, 20, 0, 32, 240, 13); //scene 2
         }
         obj.createentity(104, 120, 1, 0, 3);  // Enemy
         obj.createentity(168, 176, 1, 1, 3);  // Enemy
@@ -2136,7 +2136,7 @@ const short* finalclass::loadlevel(int rx, int ry)
 
         if(!game.nodeathmode)
         {
-            obj.createblock(1, 200, 0, 32, 240, 42); //scene 3
+            obj.createblock(TRIGGER, 200, 0, 32, 240, 42); //scene 3
         }
 
 
@@ -2232,7 +2232,7 @@ const short* finalclass::loadlevel(int rx, int ry)
 
         if(!game.nodeathmode)
         {
-            obj.createblock(1, 200, 0, 32, 240, 43); //scene 3
+            obj.createblock(TRIGGER, 200, 0, 32, 240, 43); //scene 3
         }
 
         roomname = "Now Stay Close To Me...";
@@ -2366,7 +2366,7 @@ const short* finalclass::loadlevel(int rx, int ry)
         obj.createentity(152, 176, 10, 1, 56490);  // (savepoint)
         if(!game.nodeathmode)
         {
-            obj.createblock(1, 200, 0, 32, 240, 44); //scene 3
+            obj.createblock(TRIGGER, 200, 0, 32, 240, 44); //scene 3
         }
         warpy = true;
         roomname = "Do as I Say...";
@@ -2459,7 +2459,7 @@ const short* finalclass::loadlevel(int rx, int ry)
         obj.createentity(192, 136, 10, 1, 56510);  // (savepoint)
         if(!game.nodeathmode)
         {
-            obj.createblock(1, 80, 0, 32, 240, 45); //scene 3
+            obj.createblock(TRIGGER, 80, 0, 32, 240, 45); //scene 3
         }
         warpy = true;
         roomname = "Mind Your Head";
@@ -2601,7 +2601,7 @@ const short* finalclass::loadlevel(int rx, int ry)
 
         if(!game.nodeathmode)
         {
-            obj.createblock(1, 104, 0, 32, 240, 46); //scene 3
+            obj.createblock(TRIGGER, 104, 0, 32, 240, 46); //scene 3
         }
 
         roomname = "Class Dismissed!";

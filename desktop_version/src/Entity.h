@@ -12,16 +12,6 @@
 
 enum
 {
-    BLOCK = 0,
-    TRIGGER = 1,
-    DAMAGE = 2,
-    DIRECTIONAL = 3,
-    SAFE = 4,
-    ACTIVITY = 5
-};
-
-enum
-{
     CYAN = 0,
     PURPLE = 20,
     YELLOW = 14,
@@ -64,7 +54,7 @@ public:
 
     void generateswnwave(int t);
 
-    void createblock(int t, int xp, int yp, int w, int h, int trig = 0, const std::string& script = "", bool custom = false);
+    void createblock(enum blocktype t, int xp, int yp, int w, int h, int trig = 0, const std::string& script = "", bool custom = false);
 
     bool disableentity(int t);
 

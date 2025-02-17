@@ -71,7 +71,7 @@ const short* labclass::loadlevel(int rx, int ry)
 
         if(game.intimetrial)
         {
-            obj.createblock(0, 0, 0, 8, 240);
+            obj.createblock(BLOCK, 0, 0, 8, 240);
         }
 
         rcol=1;
@@ -353,7 +353,7 @@ const short* labclass::loadlevel(int rx, int ry)
         obj.createentity(283, 88, 12, 56);  // (vertical gravity line)
 
         obj.createentity(156, 128, 20, 1);  // (terminal)
-        obj.createblock(5, 156-8, 128, 20, 16, 19);
+        obj.createblock(ACTIVITY, 156-8, 128, 20, 16, 19);
         rcol = 1;
 
         roomname = "Shuffled Hallway";
@@ -582,7 +582,7 @@ const short* labclass::loadlevel(int rx, int ry)
         obj.createentity(280, 96, 10, 1, 252510);  // (savepoint)
 
         obj.createentity(204, 32, 20, 0);  // (terminal)
-        obj.createblock(5, 204-8, 32, 20, 16, 20);
+        obj.createblock(ACTIVITY, 204-8, 32, 20, 16, 20);
         rcol=0;
 
         roomname = "Square Root";
@@ -2030,7 +2030,7 @@ const short* labclass::loadlevel(int rx, int ry)
             if(game.companion==0 && !obj.flags[9] &&  !game.crewstats[5])   //also need to check if he's rescued in a previous game
             {
                 obj.createentity(32, 177, 18, 16, 1, 17, 1);
-                obj.createblock(1, 24*8, 0, 32, 240, 33);
+                obj.createblock(TRIGGER, 24*8, 0, 32, 240, 33);
             }
         }
 
@@ -2082,7 +2082,7 @@ const short* labclass::loadlevel(int rx, int ry)
 
         if(game.intimetrial)
         {
-            obj.createblock(1, 280, 0, 32, 240, 82);
+            obj.createblock(TRIGGER, 280, 0, 32, 240, 82);
         }
 
         roomname = "Philadelphia Experiment";

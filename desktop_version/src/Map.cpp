@@ -1991,17 +1991,17 @@ void mapclass::loadlevel(int rx, int ry)
                     if (tile == 6 || tile == 8)
                     {
                         //sticking up
-                        obj.createblock(2, (i * 8), (j * 8)+4, 8, 4);
+                        obj.createblock(DAMAGE, (i * 8), (j * 8)+4, 8, 4);
                     }
                     if (tile == 7 || tile == 9)
                     {
                         //Sticking down
-                        obj.createblock(2, (i * 8), (j * 8), 8, 4);
+                        obj.createblock(DAMAGE, (i * 8), (j * 8), 8, 4);
                     }
                     if (tile == 49 || tile == 50)
                     {
                         //left or right
-                        obj.createblock(2, (i * 8), (j * 8)+3, 8, 2);
+                        obj.createblock(DAMAGE, (i * 8), (j * 8)+3, 8, 2);
                     }
                 }
                 else if(tileset==1)
@@ -2014,19 +2014,19 @@ void mapclass::loadlevel(int rx, int ry)
                         //sticking up
                         if(tile%2==0)
                         {
-                            obj.createblock(2, (i * 8), (j * 8), 8, 4);
+                            obj.createblock(DAMAGE, (i * 8), (j * 8), 8, 4);
                         }
                         else
                         {
                             //Sticking down
-                            obj.createblock(2, (i * 8), (j * 8) + 4, 8, 4);
+                            obj.createblock(DAMAGE, (i * 8), (j * 8) + 4, 8, 4);
                         }
                         if (tile < 11) tile--;
                     }
                     if (tile >= 49 && tile <= 62)
                     {
                         //left or right
-                        obj.createblock(2, (i * 8), (j * 8)+3, 8, 2);
+                        obj.createblock(DAMAGE, (i * 8), (j * 8)+3, 8, 2);
                     }
                 }
                 else if(tileset==2)
@@ -2034,12 +2034,12 @@ void mapclass::loadlevel(int rx, int ry)
                     if (tile == 6 || tile == 8)
                     {
                         //sticking up
-                        obj.createblock(2, (i * 8), (j * 8)+4, 8, 4);
+                        obj.createblock(DAMAGE, (i * 8), (j * 8)+4, 8, 4);
                     }
                     if (tile == 7 || tile == 9)
                     {
                         //Sticking down
-                        obj.createblock(2, (i * 8), (j * 8), 8, 4);
+                        obj.createblock(DAMAGE, (i * 8), (j * 8), 8, 4);
                     }
                 }
                 //Breakable blocks
@@ -2051,7 +2051,7 @@ void mapclass::loadlevel(int rx, int ry)
                 //Directional blocks
                 if (tile >= 14 && tile <= 17)
                 {
-                    obj.createblock(3, i * 8, j * 8, 8, 8, tile-14);
+                    obj.createblock(DIRECTIONAL, i * 8, j * 8, 8, 8, tile-14);
                 }
             }
         }
@@ -2088,7 +2088,7 @@ void mapclass::loadlevel(int rx, int ry)
             if (game.crewstats[3] && !game.crewstats[4])
             {
                 obj.createentity(87, 105, 18, 15, 0, 18);
-                obj.createblock(5, 87-32, 0, 32+32+32, 240, 3);
+                obj.createblock(ACTIVITY, 87-32, 0, 32+32+32, 240, 3);
             }
         }
         else if (rx == 107 && ry == 100)    //victoria
@@ -2096,7 +2096,7 @@ void mapclass::loadlevel(int rx, int ry)
             if (game.crewstats[3] && !game.crewstats[5])
             {
                 obj.createentity(140, 137, 18, 15, 0, 18);
-                obj.createblock(5, 140-32, 0, 32+32+32, 240, 3);
+                obj.createblock(ACTIVITY, 140-32, 0, 32+32+32, 240, 3);
             }
         }
         else if (rx == 114 && ry == 109)
@@ -2104,7 +2104,7 @@ void mapclass::loadlevel(int rx, int ry)
             if (game.crewstats[3] && !game.crewstats[2])
             {
                 obj.createentity(235, 81, 18, 15, 0, 18);
-                obj.createblock(5, 235-32, 0, 32+32+32, 240, 3);
+                obj.createblock(ACTIVITY, 235-32, 0, 32+32+32, 240, 3);
             }
         }
 
@@ -2116,7 +2116,7 @@ void mapclass::loadlevel(int rx, int ry)
                 if(game.crewrescued()>4 && game.crewrescued()!=6)
                 {
                     obj.createentity(175, 121, 18, 13, 0, 18);
-                    obj.createblock(5, 175-32, 0, 32+32+32, 240, 4);
+                    obj.createblock(ACTIVITY, 175-32, 0, 32+32+32, 240, 4);
                 }
             }
         }
@@ -2127,7 +2127,7 @@ void mapclass::loadlevel(int rx, int ry)
                 if(game.crewrescued()<=4 && game.crewrescued()!=6)
                 {
                     obj.createentity(53, 161, 18, 13, 1, 18);
-                    obj.createblock(5, 53-32, 0, 32+32+32, 240, 4);
+                    obj.createblock(ACTIVITY, 53-32, 0, 32+32+32, 240, 4);
                 }
             }
         }
@@ -2141,7 +2141,7 @@ void mapclass::loadlevel(int rx, int ry)
                 //If so, red will always be at his post
                 obj.createentity(107, 121, 18, 15, 0, 18);
                 //What script do we use?
-                obj.createblock(5, 107-32, 0, 32+32+32, 240, 3);
+                obj.createblock(ACTIVITY, 107-32, 0, 32+32+32, 240, 3);
             }
         }
         else if (rx == 103 && ry == 111)
@@ -2152,7 +2152,7 @@ void mapclass::loadlevel(int rx, int ry)
             {
                 obj.createentity(198, 105, 18, 14, 0, 18);
                 //What script do we use?
-                obj.createblock(5, 198-32, 0, 32+32+32, 240, 2);
+                obj.createblock(ACTIVITY, 198-32, 0, 32+32+32, 240, 2);
             }
         }
         else if (rx == 103 && ry == 110)
@@ -2163,7 +2163,7 @@ void mapclass::loadlevel(int rx, int ry)
             {
                 obj.createentity(242, 177, 18, 13, 0, 18);
                 //What script do we use?
-                obj.createblock(5, 242-32, 177-20, 32+32+32, 40, 4);
+                obj.createblock(ACTIVITY, 242-32, 177-20, 32+32+32, 40, 4);
             }
         }
         else if (rx == 104 && ry == 110)
@@ -2174,7 +2174,7 @@ void mapclass::loadlevel(int rx, int ry)
             {
                 obj.createentity(140, 177, 18, 20, 0, 18);
                 //What script do we use?
-                obj.createblock(5, 140-32, 0, 32+32+32, 240, 1);
+                obj.createblock(ACTIVITY, 140-32, 0, 32+32+32, 240, 1);
             }
         }
         else if (rx == 102 && ry == 110)
@@ -2192,7 +2192,7 @@ void mapclass::loadlevel(int rx, int ry)
                     obj.entities[j].tile +=6;
                 }
                 //What script do we use?
-                obj.createblock(5, 249-32, 0, 32+32+32, 240, 5);
+                obj.createblock(ACTIVITY, 249-32, 0, 32+32+32, 240, 5);
             }
         }
     }
