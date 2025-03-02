@@ -2415,6 +2415,7 @@ void Game::updatestate(void)
             break;
         case 1001:
             //Found a trinket!
+            V6AP_RecvClear(); // Clear one item
             advancetext = true;
             incstate();
             graphics.createtextboxflipme("", 50, 85, TEXT_COLOUR("gray"));
@@ -2448,7 +2449,6 @@ void Game::updatestate(void)
                 music.fadeMusicVolumeIn(3000);
             }
             graphics.showcutscenebars = false;
-            V6AP_RecvClear(); // Clear one item
             break;
 
         case 1010:
