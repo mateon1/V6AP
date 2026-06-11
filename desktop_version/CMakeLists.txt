@@ -246,7 +246,6 @@ if(APPLE)
     set(PFS_SRC ${PFS_SRC} ../third_party/physfs/src/physfs_platform_apple.m)
 endif()
 set(PNG_SRC src/lodepng_wrapper.c)
-set(PNG_DEF -DLODEPNG_NO_COMPILE_ALLOCATORS -DLODEPNG_NO_COMPILE_DISK)
 set(CHM_SRC ../third_party/c-hashmap/map.c)
 set(SBIDI_SRC ../third_party/SheenBidi/Source/SheenBidi.c)
 
@@ -348,6 +347,14 @@ else()
     set_source_files_properties(${CHM_SRC} PROPERTIES COMPILE_FLAGS -std=c99)
 endif()
 
+# Unfortunately, it doesn't seem like distros package LodePNG
+add_library(lodepng-static STATIC ${PNG_SRC})
+
+target_compile_definitions(lodepng-static PRIVATE
+    -DLODEPNG_NO_COMPILE_ALLOCATORS
+    -DLODEPNG_NO_COMPILE_DISK
+)
+
 add_library(c-hashmap-static STATIC ${CHM_SRC})
 
 add_library(sheenbidi-static STATIC ${SBIDI_SRC})
@@ -360,14 +367,12 @@ target_include_directories(sheenbidi-static PRIVATE
 )
 
 if(BUNDLE_DEPENDENCIES)
-    list(APPEND STATIC_LIBRARIES lodepng-static physfs-static tinyxml2-static c-hashmap-static faudio-static sheenbidi-static)
+    list(APPEND STATIC_LIBRARIES physfs-static tinyxml2-static lodepng-static c-hashmap-static faudio-static sheenbidi-static)
 else()
-    list(APPEND STATIC_LIBRARIES c-hashmap-static sheenbidi-static)
+    list(APPEND STATIC_LIBRARIES lodepng-static c-hashmap-static sheenbidi-static)
 endif()
 
 if(BUNDLE_DEPENDENCIES)
-    add_library(lodepng-static STATIC ${PNG_SRC})
-    target_compile_definitions(lodepng-static PRIVATE ${PNG_DEF})
     add_library(tinyxml2-static STATIC ${XML2_SRC})
     add_library(physfs-static STATIC ${PFS_SRC})
     target_compile_definitions(physfs-static PRIVATE
@@ -383,11 +388,7 @@ if(BUNDLE_DEPENDENCIES)
 
     target_link_libraries(VVVVVV ${STATIC_LIBRARIES} APCpp)
 else()
-    target_compile_definitions(VVVVVV PRIVATE
-        ${PNG_DEF}
-        -DSYSTEM_LODEPNG
-    )
-    target_link_libraries(VVVVVV ${STATIC_LIBRARIES} physfs tinyxml2 FAudio lodepng APCpp)
+    target_link_libraries(VVVVVV ${STATIC_LIBRARIES} physfs tinyxml2 FAudio APCpp)
 endif()
 
 
